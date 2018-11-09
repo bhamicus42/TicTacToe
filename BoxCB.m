@@ -1,5 +1,5 @@
 % filename:BoxCB
-% Purpose:toggles image on box to show playerâ€™s current move, checks wins, AI move, and switches player
+% Purpose:toggles image on box to show player’s current move
 % date: 11/6/18
 % Authors: Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
@@ -56,4 +56,9 @@ WhoseTurn = 1
 Player = 'Player1'
 PlayerNum = str2num(Player(end))
 Player = ['Player' , num2str(PlayerNum + WhoseTurn)]  %Not right eq
-WhoseTurn = -WhoseTurn %1 or -1 to indicated player turn init in TicTacInit %if EndPB, this will go into that file
+WhoseTurn = -WhoseTurn %1 or -1 to indicated player turn init in TicTacInit
+
+
+
+
+
