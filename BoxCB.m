@@ -26,11 +26,11 @@
 %     computer choose next move
 %     options = find(~GameState)
 
+%Emmy, were you intending to change this to a findobj?  -Ben
+BoxTag = 'Box4'; %(findobj(gcbo, 'tag'))
+BoxNum = str2num(BoxTag(end));
 
-BoxTag = 'Box4' %(findobj(gcbo, 'tag'))
-BoxNum = str2num(BoxTag(end))
-
-GameState(BoxNum) = WhoseTurn
+GameState(BoxNum) = WhoseTurn;
 
 for Index = 1:length(PossWins)
     CheckWins = [CheckWins, sum(GameState(PossWins(Index,:)))]
