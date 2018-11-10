@@ -17,3 +17,5 @@ if WhoseTurn > 0
 else
     set(['Box', num2str(CompMoveChoice)], 'string', 'O');
 end
+
+GameState(CompMoveChoice) = WhoseTurn;
