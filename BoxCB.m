@@ -26,39 +26,55 @@
 %     computer choose next move
 %     options = find(~GameState)
 
+%setPlayerInfo based on whoseTurn
+if WhoseTurn > 0
+    Player = 1;
+    Opponent = 2;
+    PlayerSymbol = 'X';
+elseif WhoseTurn < 0
+    Player = 2;
+    Opponent = 1;
+    PlayerSymbol = 'O';
+end
+
 %Emmy, were you intending to change this to a findobj?  -Ben
-BoxTag = 'Box4'; %(findobj(gcbo, 'tag'))
+BoxTag = (get(gcbo, 'tag'));
 BoxNum = str2num(BoxTag(end));
 
 GameState(BoxNum) = WhoseTurn;
+set(gcbo, 'string', PlayerSymbol);
 
+%Checks for possible wins
 for Index = 1:length(PossWins)
     CheckWins = [CheckWins, sum(GameState(PossWins(Index,:)))]
 end
 
 if max(CheckWins) == 3
-    Player = WhoseTurn
-    EndGame = 1
+    EndGame = 1;
+else
+    CheckWins = [];
 end
 
-if ~find(GameState == 0)
-    Ties = Ties + 1;
-    EndGame = 1
+%checks if game should be over
+if (sum(sum(abs(GameState)))) == 9
+    Ties = Ties + 1
+    TieBool = 1;
+    EndGame = 1;
 end
-% 
-% if EndGame
-%     TicTacInit.m
-% end
-
+ 
+if EndGame
+    set(findobj('tag', 'GameOverPB'), 'Visible', 'on')
+    set(findobj('tag', 'GameOverPB'), 'Enable', 'on')
+end
 
 %COMPUTER TURN
-WhoseTurn = 1
-Player = 'Player1'
-PlayerNum = str2num(Player(end))
-Player = ['Player' , num2str(PlayerNum + WhoseTurn)]  %Not right eq
-WhoseTurn = -WhoseTurn %1 or -1 to indicated player turn init in TicTacInit
+% WhoseTurn = 1
+% Player = 'Player1'
+% PlayerNum = str2num(Player(end))
+% Player = ['Player' , num2str(PlayerNum + WhoseTurn)]  %Not right eq
+WhoseTurn = -WhoseTurn; %1 or -1 to indicated player turn init in TicTacInit
 
-
-
-
-
+% 
+% 
+% 
+% 
