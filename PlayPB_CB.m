@@ -3,5 +3,10 @@
 % date: 11/6/18
 % Authors: Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
-close all
+
+%last edited by Ben 11/14/18 1:20 PM
+
+close
+
 open TicTacGame.fig
+
