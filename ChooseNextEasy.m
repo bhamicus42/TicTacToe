@@ -9,13 +9,5 @@
 % chosen move is PossibleMoves(rand)
 
 CompMoveChoice = PossibleMoves(randi(length(PossibleMoves)));
-
-%I'm assuming here that the default first symbol is X.  I'll need to update
-%this code later to let players choose their own symbol.
-if WhoseTurn > 0
-    set(['Box', num2str(CompMoveChoice)], 'string', 'X');
-else
-    set(['Box', num2str(CompMoveChoice)], 'string', 'O');
-end
-
+set(findobj('tag', ['Box', num2str(CompMoveChoice)]), 'string', PlayerSymbol)
 GameState(CompMoveChoice) = WhoseTurn;

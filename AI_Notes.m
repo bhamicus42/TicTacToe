@@ -1,19 +1,12 @@
-% Mode = get(findobj('Tag', 'ModesPM', 'parent', TitleHandle), 'value');
-
-if Mode > 0
+if Mode > 1
 PossibileMoves = find(~GameState);
 
     switch Mode
-        case 1
-%             NexMove(ChooseMoveEasy())
-            ChooseNextEasy
         case 2
-%             NexMove(ChooseMoveEasy())
-            ChooseNextModerate
+            ChooseNextEasy
         case 3
-%             NexMove(ChooseMoveEasy())
-            ChooseNextExpert
+%             ChooseNextModerate
+        case 4
+%             ChooseNextExpert
     end
 end
-
-% function [] = NextMove(ChooseMoveEasy())

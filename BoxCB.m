@@ -4,69 +4,56 @@
 % Authors: Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
 
-% BoxNum = get num from tag;
-% set(gcbo, UserData, WhoseTurn);
-% GameState(BoxNum) = WhoseTurn;
-% 
-% if WhoseTurn>0
-%     set(gcbo, string, 'X');
-% else
-%     set(gcbo, string, 'O');
-% end 
-% 
-% check for win
-%     if abs sum of GameState along any direction, win
-%     to sum up diagonally, chek this:  https://www.mathworks.com/matlabcentral/answers/245419-how-to-sum-matrix-diagonals
-%      check trace
-% 
-% check for tie
-%     if no GameState 0, tie
-%         
-% if difficulty > 0
-%     computer choose next move
-%     options = find(~GameState)
-
-%setPlayerInfo based on whoseTurn
-if WhoseTurn > 0
-    Player = 1;
-    Opponent = 2;
-    PlayerSymbol = 'X';
-elseif WhoseTurn < 0
-    Player = 2;
-    Opponent = 1;
-    PlayerSymbol = 'O';
-end
-
-%Emmy, were you intending to change this to a findobj?  -Ben
 BoxTag = (get(gcbo, 'tag'));
 BoxNum = str2num(BoxTag(end));
 
-GameState(BoxNum) = WhoseTurn;
-set(gcbo, 'string', PlayerSymbol);
+%Everything inside this if statement only executes if the box isn't
+%already occupied
+if GameState(BoxNum) == 0
+    SetPlayerData
 
-%Checks for possible wins
-for Index = 1:length(PossWins)
-    CheckWins = [CheckWins, abs(sum(GameState(PossWins(Index,:))))]
-end
+    %gets the current box and sets its string to the right symbol
+    GameState(BoxNum) = WhoseTurn;
+    set(gcbo, 'string', PlayerSymbol);
 
-if max(CheckWins) == 3
-    EndGame = 1;
-else
-    CheckWins = [];
-end
+    %Checks for possible wins
+    for Index = 1:length(PossWins)
+        CheckWins = [CheckWins, abs(sum(GameState(PossWins(Index,:))))];
+    end
 
-%checks if game should be over
-if (sum(sum(abs(GameState)))) == 9
-    Ties = Ties + 1
-    TieBool = 1;
-    EndGame = 1;
-end
+    if max(CheckWins) == 3
+        EndGame = 1;
+    else
+        CheckWins = [];
+    end
+
+    %checks for tie
+    if (sum(sum(abs(GameState)))) == 9
+        Ties = Ties + 1;
+        TieBool = 1;
+        EndGame = 1;
+    end
  
-if EndGame
-    set(findobj('tag', 'EndPB'), 'string', 'Play Again')
+    if EndGame
+        set(findobj('tag', 'EndPB'), 'string', 'Play Again')
+    end
+
+    %COMPUTER TURN
+    WhoseTurn = -WhoseTurn; %1 or -1 to indicated player turn init in TicTacInit
+    
+    if Mode > 1
+    SetPlayerData
+    PossibleMoves = find(~GameState);
+
+    switch Mode
+        case 2
+            ChooseNextEasy
+        case 3
+%             ChooseNextModerate
+        case 4
+%             ChooseNextExpert
+        end
+    end
+    
+    WhoseTurn = -WhoseTurn;
 end
-
-%COMPUTER TURN
-WhoseTurn = -WhoseTurn; %1 or -1 to indicated player turn init in TicTacInit
-
-% 

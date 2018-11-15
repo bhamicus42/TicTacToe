@@ -4,14 +4,16 @@
 % date: 11/6/18
 % Authors: Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
+
  set(findobj('tag', 'EndPB'), 'string', 'End Turn')
+ 
  if EndGame
-    EndGame = 0;
     %update scores
     if ~TieBool
-        PlayerWins(Player) = PlayerWins(Player) + 1
+        PlayerWins(Player) = PlayerWins(Player) + 1;
         PlayerLosses(Opponent) = PlayerLosses(Opponent)+ 1;
     end
+    
     % clearBoard and reset GameState
     set(findobj('callback', 'BoxCB'), 'string', '')
     WhoseTurn = 1;
@@ -19,4 +21,5 @@
     EndGame = 0;
     TieBool = 0;
     CheckWins = []; 
+    PossibleMoves = [];
 end
