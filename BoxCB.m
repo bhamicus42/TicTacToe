@@ -1,5 +1,5 @@
 % filename:BoxCB
-% Purpose:toggles image on box to show player’s current move
+% Purpose:toggles image on box to show playerâ€™s current move
 % date: 11/6/18
 % Authors: Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
@@ -46,7 +46,7 @@ set(gcbo, 'string', PlayerSymbol);
 
 %Checks for possible wins
 for Index = 1:length(PossWins)
-    CheckWins = [CheckWins, sum(GameState(PossWins(Index,:)))]
+    CheckWins = [CheckWins, abs(sum(GameState(PossWins(Index,:))))]
 end
 
 if max(CheckWins) == 3
@@ -63,18 +63,10 @@ if (sum(sum(abs(GameState)))) == 9
 end
  
 if EndGame
-    set(findobj('tag', 'GameOverPB'), 'Visible', 'on')
-    set(findobj('tag', 'GameOverPB'), 'Enable', 'on')
+    set(findobj('tag', 'EndPB'), 'string', 'Play Again')
 end
 
 %COMPUTER TURN
-% WhoseTurn = 1
-% Player = 'Player1'
-% PlayerNum = str2num(Player(end))
-% Player = ['Player' , num2str(PlayerNum + WhoseTurn)]  %Not right eq
 WhoseTurn = -WhoseTurn; %1 or -1 to indicated player turn init in TicTacInit
 
-% 
-% 
-% 
 % 
