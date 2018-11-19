@@ -4,12 +4,14 @@
 % Authors: Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
 
+%last editted by Emmy Nam 11/19/2018 15:50
+
 TitleHandle = gcf;
 
 GameSpaceVarInit
 
 %If player score data doesn't already exist, the variables are initialized 
-if ~exist('Player1Wins') || ResetScores
+if ~exist('PlayerWins') || ResetScores
     PlayerWins =  [0,0];
     PlayerLosses = [0,0];
     Ties = 0;
