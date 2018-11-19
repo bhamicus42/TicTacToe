@@ -29,6 +29,21 @@ else
     %gameboard in the middle of a game
 end
 
+%populates game board if player leaves to help, main menu, or credits
+if exist('GameState')
+    for BoxIndex = 1:9
+        if GameState(BoxIndex) == 1
+            set(findobj('tag', ['Box', num2str(BoxIndex)]), 'string', 'X')
+        elseif GameState(BoxIndex) == -1
+            set(findobj('tag', ['Box', num2str(BoxIndex)]), 'string', 'O')
+        else 
+            set(findobj('tag', ['Box', num2str(BoxIndex)]), 'string', '')
+        end
+    end
+    CheckWins = [];
+end
+
+
     
     
     
