@@ -6,8 +6,11 @@
 
 TitleHandle = gcf;
 
-if exist('WhoseTurn')
-    WhoseTurn = -1;
-end
+GameSpaceVarInit
 
-GameState = zeros(3,3)
+%If player score data doesn't already exist, the variables are initialized 
+if ~exist('Player1Wins') || ResetScores
+    PlayerWins =  [0,0];
+    PlayerLosses = [0,0];
+    Ties = 0;
+end
