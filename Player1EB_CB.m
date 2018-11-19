@@ -5,3 +5,4 @@
 % Engr-6 Group Stomadoapod srjc
 
     Player1Name=get(findobj('tag','Player1EB'),'string');
+    set(findobj('tag','Player1EB'),'string','')
