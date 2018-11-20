@@ -4,9 +4,11 @@
 % Authors: Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
 
-% last edited by Emmy Nam 11/19/2018 2:53
+% last edited by Emmy Nam 11/20/2018 13:45
 
-Modes = 1;
+Mode = 1;
+TogTurn = 0;
+IfGameDone
 
 close
 open TitleFig.fig

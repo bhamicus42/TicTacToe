@@ -4,6 +4,13 @@
 % Authors: Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
 
-%Last edit: Emmy Nam 11/19/2018 15:50
+% last edited by Emmy Nam 11/20/2018 13:45
 
-WhoseTurn = -WhoseTurn;
+TogTurn = get(gcbo,'Value');
+
+if ~exist('GameState')
+    GameSpaceVarInit
+elseif TogTurn
+    WhoseTurn = -WhoseTurn
+end
+%WhoseTurn = -WhoseTurn;

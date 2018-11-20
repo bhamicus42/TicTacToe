@@ -5,9 +5,14 @@
 % Authors:   Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
 
+% last edited by Emmy Nam 11/20/2018 13:45
 
 if ~exist('GameState')
     WhoseTurn = 1;
+    %ensures turn is toggled until otherwise 
+    if TogTurn
+        WhoseTurn = -WhoseTurn
+    end
     GameState = zeros(3,3);
     Mode = 1;
 
@@ -24,10 +29,12 @@ if ~exist('GameState')
     CheckWins = [];
     TieBool = 0; %logical indicates if cats game
     ResetScores = 0; %toggle variable to allow players to reset scores
-else
-    %add something to populate squares if the player navigated away from the
-    %gameboard in the middle of a game
+% else
+%     %add something to populate squares if the player navigated away from the
+%     %gameboard in the middle of a game
 end
+
+
 
 
     

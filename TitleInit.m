@@ -4,10 +4,11 @@
 % Authors: Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
 
-%last editted by Emmy Nam 11/19/2018 15:50
+% last edited by Emmy Nam 11/20/2018 13:45
 
 TitleHandle = gcf;
 
+TogTurn = 0;
 GameSpaceVarInit
 
 %If player score data doesn't already exist, the variables are initialized 

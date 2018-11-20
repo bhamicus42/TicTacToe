@@ -5,21 +5,7 @@
 % Authors: Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
 
- set(findobj('tag', 'EndPB'), 'string', 'End Turn')
- 
- if EndGame
-    %update scores
-    if ~TieBool
-        PlayerWins(Player) = PlayerWins(Player) + 1;
-        PlayerLosses(Opponent) = PlayerLosses(Opponent)+ 1;
-    end
-    
-    % clearBoard and reset GameState
-    set(findobj('callback', 'BoxCB'), 'string', '')
-    WhoseTurn = 1;
-    GameState = zeros(3,3);
-    EndGame = 0;
-    TieBool = 0;
-    CheckWins = []; 
-    PossibleMoves = [];
-end
+% last edited by Emmy Nam 11/20/2018 13:45
+
+set(findobj('tag', 'EndPB'), 'string', 'End Turn') 
+IfGameDone
