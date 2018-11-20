@@ -9,3 +9,6 @@
 close
 open TicTacGame.fig
 
+[TetrisSoundData, TetrisSound]= audioread('Tetris.ogg');
+TetrisObject= audioplayer(TetrisSoundData, TetrisSound);
+play (TetrisObject);

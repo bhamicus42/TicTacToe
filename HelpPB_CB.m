@@ -6,5 +6,4 @@
 
 % last edited by Ben Hoffman 11/7/18 1:33 PM
 
-close
 open HelpFig.fig

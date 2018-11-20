@@ -11,5 +11,6 @@
 %already been set up.  If they have, then these initializations are
 %skipped.
 
-
+GameSpaceVarInit
+GamePopulate
 

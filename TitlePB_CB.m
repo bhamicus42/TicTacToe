@@ -4,7 +4,9 @@
 % Authors: Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
 
-% last edited by Ben Hoffman 11/7/18 1:37 PM
+% last edited by Emmy Nam 11/19/2018 2:53
+
+Modes = 1;
 
 close
 open TitleFig.fig
