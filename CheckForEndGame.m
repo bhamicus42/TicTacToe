@@ -5,7 +5,7 @@
 % Authors:   Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
 
-
+% last edited by Emmy Nam 11/20/2018 13:45
 
 %Checks for possible wins
 for Index = 1:length(PossWins)
@@ -26,4 +26,5 @@ end
 
 if EndGame
     set(findobj('tag', 'EndPB'), 'string', 'Play Again')
+    set(findobj('callback', 'BoxCB'), 'enable', 'off')
 end
