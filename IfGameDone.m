@@ -8,10 +8,10 @@
 
  if EndGame
     %update scores
-    if ~TieBool
-        PlayerWins(Player) = PlayerWins(Player) + 1;
-        PlayerLosses(Opponent) = PlayerLosses(Opponent)+ 1;
-    end
+%     if ~TieBool
+%         PlayerWins(Player) = PlayerWins(Player) + 1;
+%         PlayerLosses(Opponent) = PlayerLosses(Opponent)+ 1;
+%     end
     
     % clearBoard and reset GameState
     set(findobj('callback', 'BoxCB'), 'string', '')

@@ -24,7 +24,20 @@ if (sum(sum(abs(GameState)))) == 9
     EndGame = 1;
 end
 
+
+
 if EndGame
+    if ~TieBool
+        PlayerWins(Player) = PlayerWins(Player) + 1;
+        PlayerLosses(Opponent) = PlayerLosses(Opponent)+ 1;
+    end
     set(findobj('tag', 'EndPB'), 'string', 'Play Again')
     set(findobj('callback', 'BoxCB'), 'enable', 'off')
+    
+    %Scoreboard W/T/L
+    set(findobj('tag','P1Wins'),'string',num2str(PlayerWins(1)));
+    set(findobj('tag','P2Wins'),'string',num2str(PlayerWins(2)));
+    set(findobj('tag','Ties'),'string',num2str(Ties));
+    set(findobj('tag','P1Losses'),'string',num2str(PlayerLosses(1)));
+    set(findobj('tag','P2Losses'),'string',num2str(PlayerLosses(2)));
 end

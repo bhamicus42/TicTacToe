@@ -19,3 +19,10 @@ if exist('GameState')
     end
     CheckWins = [];
 end
+
+%Scoreboard W/T/L
+    set(findobj('tag','P1Wins'),'string',num2str(PlayerWins(1)));
+    set(findobj('tag','P2Wins'),'string',num2str(PlayerWins(2)));
+    set(findobj('tag','Ties'),'string',num2str(Ties));
+    set(findobj('tag','P1Losses'),'string',num2str(PlayerLosses(1)));
+    set(findobj('tag','P2Losses'),'string',num2str(PlayerLosses(2)));

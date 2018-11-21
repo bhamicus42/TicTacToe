@@ -14,3 +14,9 @@
 GameSpaceVarInit
 GamePopulate
 
+% Scoreboard Names/ Symbols
+set(findobj('tag','Player1Text'),'string',Player1Name);
+set(findobj('tag','Player2Text'),'string',Player2Name);
+set(findobj('tag', 'P1Symbol'),'string', 'X');
+set(findobj('tag', 'P2Symbol'),'string', 'O');
+
