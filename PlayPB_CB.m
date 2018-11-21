@@ -7,6 +7,5 @@
 %last edited by Ben 11/14/18 1:20 PM
 
 close
-
 open TicTacGame.fig
 
