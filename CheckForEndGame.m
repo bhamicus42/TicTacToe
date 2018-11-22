@@ -33,7 +33,7 @@ if EndGame
     end
     set(findobj('tag', 'EndPB'), 'string', 'Play Again')
     set(findobj('callback', 'BoxCB'), 'enable', 'off')
-    
+
     %Scoreboard W/T/L
     set(findobj('tag','P1Wins'),'string',num2str(PlayerWins(1)));
     set(findobj('tag','P2Wins'),'string',num2str(PlayerWins(2)));

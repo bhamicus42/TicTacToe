@@ -3,7 +3,7 @@
 % for the first round
 % date:     11/6/18
 % Authors:  Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
-% 
+%
 % Engr-6 Group Stomadoapod srjc
 
 %Because the player may choose to navigate away from the gameboard while a
@@ -19,4 +19,3 @@ set(findobj('tag','Player1Text'),'string',Player1Name);
 set(findobj('tag','Player2Text'),'string',Player2Name);
 set(findobj('tag', 'P1Symbol'),'string', 'X');
 set(findobj('tag', 'P2Symbol'),'string', 'O');
-

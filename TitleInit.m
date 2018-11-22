@@ -11,7 +11,7 @@ TitleHandle = gcf;
 TogTurn = 0;
 GameSpaceVarInit
 
-%If player score data doesn't already exist, the variables are initialized 
+%If player score data doesn't already exist, the variables are initialized
 if ~exist('PlayerWins') || ResetScores
     PlayerWins =  [0,0];
     PlayerLosses = [0,0];

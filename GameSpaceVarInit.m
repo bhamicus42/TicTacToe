@@ -33,10 +33,3 @@ if ~exist('GameState')
 %     %add something to populate squares if the player navigated away from the
 %     %gameboard in the middle of a game
 end
-
-
-
-
-    
-    
-    
