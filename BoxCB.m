@@ -19,25 +19,9 @@ if GameState(BoxNum) == 0
     CheckForEndGame
 
     %COMPUTER TURN
-    WhoseTurn = -WhoseTurn; %1 or -1 to indicated player turn init in TicTacInit
+    WhoseTurn = -WhoseTurn; %1 or -1 to indicate player turn init in TicTacInit
 
-    %temporary debug message
-    disp(['Computer turn.  WhoseTurn is ', num2str(WhoseTurn)])
-
-    if (Mode > 1) & (EndGame ~= 1)
-        SetPlayerData
-        PossibleMoves = find(~GameState);
-
-        switch Mode
-            case 2
-                ChooseNextEasy
-            case 3
-                ChooseNextModerate
-            case 4
-    %             ChooseNextExpert
-        end
-    WhoseTurn = -WhoseTurn;
-    end
+    CompMove
 
     CheckForEndGame
 end

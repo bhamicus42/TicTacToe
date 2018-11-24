@@ -6,11 +6,6 @@
 %
 % Engr-6 Group Stomadoapod srjc
 
-%Because the player may choose to navigate away from the gameboard while a
-%game is in progress, this if statement checks to see if the variables have
-%already been set up.  If they have, then these initializations are
-%skipped.
-
 GameSpaceVarInit
 GamePopulate
 
@@ -19,3 +14,8 @@ set(findobj('tag','Player1Text'),'string',Player1Name);
 set(findobj('tag','Player2Text'),'string',Player2Name);
 set(findobj('tag', 'P1Symbol'),'string', 'X');
 set(findobj('tag', 'P2Symbol'),'string', 'O');
+
+%If player2/comp goes first, this executes.
+if TogTurn  
+    CompMove
+end

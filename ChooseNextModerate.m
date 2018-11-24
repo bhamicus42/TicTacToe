@@ -20,7 +20,7 @@ for Index = 1:length(PossWins)
 end
 
 if (WinPossible == true)
-    CompChoiceRow = find(sum(GameState(PossWins),2) == 2*WhoseTurn, 1)
+    CompChoiceRow = find(sum(GameState(PossWins),2) == 2*WhoseTurn, 1);
     CompChoiceColumn = find(~GameState(PossWins(CompChoiceRow,:)));
     CompMoveChoice = PossWins(CompChoiceRow,CompChoiceColumn);
     MarkBox

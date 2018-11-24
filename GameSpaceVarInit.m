@@ -5,16 +5,15 @@
 % Authors:   Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
 
-% last edited by Emmy Nam 11/20/2018 13:45
+% last edited by Ben Hoffman 11/24/2018 8:39 AM
 
 if ~exist('GameState')
     WhoseTurn = 1;
     %ensures turn is toggled until otherwise 
     if TogTurn
-        WhoseTurn = -WhoseTurn
+        WhoseTurn = -WhoseTurn;
     end
     GameState = zeros(3,3);
-    Mode = 1;
 
     PossWins = [1,2,3;
                 4,5,6;
@@ -28,8 +27,19 @@ if ~exist('GameState')
     EndGame = 0;
     CheckWins = [];
     TieBool = 0; %logical indicates if cats game
-    ResetScores = 0; %toggle variable to allow players to reset scores
-% else
-%     %add something to populate squares if the player navigated away from the
-%     %gameboard in the middle of a game
+    ResetScores = 0; %toggle variable to allow players to reset scores    
+end
+
+% The normal ~exist('var') doesn't work, because apparently some other file
+% named Mode exists, but not a variable, so ~exist('Mode') returns false
+% even if no variable 'Mode' exists in workspace
+if exist('Mode') ~= 1
+    Mode = 1;
+end
+
+if ~exist('Player1Name')
+    Player1Name = 'Player1';
+end
+if ~exist('Player2Name')
+    Player2Name = 'Player2';
 end

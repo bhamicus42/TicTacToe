@@ -9,3 +9,4 @@
 
 set(findobj('tag', 'EndPB'), 'string', 'End Turn') 
 IfGameDone
+TicTacInit
