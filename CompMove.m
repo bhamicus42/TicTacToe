@@ -21,4 +21,5 @@ if (Mode > 1) & (EndGame ~= 1)
         end
         
         WhoseTurn = -WhoseTurn;
+        CheckForEndGame
     end
