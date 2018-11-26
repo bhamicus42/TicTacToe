@@ -4,7 +4,7 @@
 % Authors: Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
 
-% last edited by Emmy Nam 11/20/2018 13:45
+% last edited by Ben Hoffman 11/23/2018 9:39 AM
 
 TitleHandle = gcf;
 
@@ -17,3 +17,5 @@ if ~exist('PlayerWins') || ResetScores
     PlayerLosses = [0,0];
     Ties = 0;
 end
+
+%sets default player names
