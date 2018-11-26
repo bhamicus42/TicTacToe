@@ -11,9 +11,13 @@
 %forces players to start new game if mode is changed
 %Note: to ensure mode is correct if navigate to main menu, reset mode=1 in TitlePB_CB.m
 %when go to title screen because human v. human is auto filled by PM 
+
 if Mode ~= get(gcbo, 'value')
     clear GameState
     GameSpaceVarInit
+    PlayerWins=[0,0];
+ Ties= 0;
+ PlayerLosses =[0,0];
 end
 
 Mode = get(gcbo, 'value');

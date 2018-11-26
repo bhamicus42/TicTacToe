@@ -3,5 +3,8 @@
 % date: 11/6/18
 % Authors: Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
+   PlayerWins=[0,0];
+ Ties= 0;
+ PlayerLosses =[0,0];
 Player2Name=get(findobj('tag','Player2EB'),'string');
 set(findobj('tag','Player2EB'),'string','')
