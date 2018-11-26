@@ -23,5 +23,4 @@ if GameState(BoxNum) == 0
 
     CompMove
 
-    CheckForEndGame
 end
