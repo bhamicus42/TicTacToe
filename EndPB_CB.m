@@ -7,6 +7,7 @@
 
 % last edited by Emmy Nam 11/20/2018 13:45
 
-set(findobj('tag', 'EndPB'), 'string', 'End Turn') 
+% set(findobj('tag', 'EndPB'), 'string', 'End Turn') 
+ set(findobj('tag', 'EndPB'), 'visible', 'off');
 IfGameDone
 TicTacInit

@@ -31,8 +31,10 @@ if EndGame
         PlayerWins(Player) = PlayerWins(Player) + 1;
         PlayerLosses(Opponent) = PlayerLosses(Opponent)+ 1;
     end
-    set(findobj('tag', 'EndPB'), 'string', 'Play Again')
-    set(findobj('callback', 'BoxCB'), 'enable', 'off')
+    set(findobj('tag', 'EndPB'), 'string', 'Play Again');
+    set(findobj('tag', 'EndPB'), 'enable', 'on');
+    set(findobj('tag', 'EndPB'), 'visible', 'on');
+    set(findobj('callback', 'BoxCB'), 'enable', 'off');
 
     %Scoreboard W/T/L
     set(findobj('tag','P1Wins'),'string',num2str(PlayerWins(1)));
