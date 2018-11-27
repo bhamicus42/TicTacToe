@@ -18,4 +18,9 @@ set(findobj('tag', 'P2Symbol'),'string', 'O');
 %If player2/comp goes first, this executes.
 if TogTurn  
     CompMove
+       set(findobj('tag','Player2Text'),'BackgroundColor',[1 1 0]);
+         set(findobj('tag','Player1Text'),'BackgroundColor',[0.94 0.94 0.94]);
+else
+       set(findobj('tag','Player1Text'),'BackgroundColor',[1 1 0]);
+           set(findobj('tag','Player2Text'),'BackgroundColor',[0.94 0.94 0.94]);
 end
