@@ -4,9 +4,11 @@
 % Authors: Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
 
-% last edited by Emmy Nam 11/20/2018 13:45
+% last edited by Emmy Nam 11/28/2018 15:45
 
-Mode = 1;
+if ~exist('Mode')
+    Mode = 1;
+end
 
 if ~exist('TogTurn')
     TogTurn = 0;

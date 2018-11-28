@@ -21,10 +21,12 @@ if ~exist('PlayerWins') || ResetScores
     Ties = 0;
 end
 
-%sets default player names
-
 if TogTurn == 1
     set(findobj('tag','TogTurnRB'),'Value', 1);
+end
+
+if Mode ~= 1
+    set(findobj('tag','ModesPM'),'Value', Mode);
 end
 
 % Background
