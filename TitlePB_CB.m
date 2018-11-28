@@ -7,7 +7,11 @@
 % last edited by Emmy Nam 11/20/2018 13:45
 
 Mode = 1;
-TogTurn = 0;
+
+if ~exist('TogTurn')
+    TogTurn = 0;
+end
+
 IfGameDone
 
 close

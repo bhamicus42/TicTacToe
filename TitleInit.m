@@ -8,7 +8,10 @@
 
 TitleHandle = gcf;
 
-TogTurn = 0;
+if ~exist('TogTurn')
+    TogTurn = 0;
+end
+
 GameSpaceVarInit
 
 %If player score data doesn't already exist, the variables are initialized
@@ -19,3 +22,13 @@ if ~exist('PlayerWins') || ResetScores
 end
 
 %sets default player names
+
+if TogTurn == 1
+    set(findobj('tag','TogTurnRB'),'Value', 1);
+end
+
+% Background
+Grey = imread('Grey.jpg');
+axes('position', [0 0 1 1]);
+Background = image(Grey);
+set(gca,'visible','off');
