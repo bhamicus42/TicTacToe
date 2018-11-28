@@ -13,7 +13,7 @@ for Index = 1:length(PossWins)
 end
 if max(CheckWins) == 3
     EndGame = 1;
-    disp('Endgame by win');
+ 
 else
     CheckWins = [];
 end
