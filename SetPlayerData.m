@@ -9,15 +9,18 @@
 if WhoseTurn > 0
     Player = 1;
     Opponent = 2;
+    if Mode<2
      set(findobj('tag','Player2Text'),'BackgroundColor',[1 1 0]);
      set(findobj('tag','Player1Text'),'BackgroundColor',[0.94 0.94 0.94]);
+    end
     PlayerSymbol = 'X';
    
 elseif WhoseTurn < 0
     Player = 2;
     Opponent = 1;
+    if Mode<2
     set(findobj('tag','Player1Text'),'BackgroundColor',[1 1 0]);
      set(findobj('tag','Player2Text'),'BackgroundColor',[0.94 0.94 0.94]);
-    PlayerSymbol = 'O';
-      
+    end
+     PlayerSymbol = 'O';
 end
