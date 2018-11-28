@@ -19,7 +19,7 @@
     WhoseTurn = 1;
     %ensures turn is toggled until otherwise 
     if TogTurn
-        WhoseTurn = -WhoseTurn
+        WhoseTurn = -WhoseTurn;
     end
     GameState = zeros(3,3);
     EndGame = 0;

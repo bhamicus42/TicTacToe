@@ -20,11 +20,13 @@ else
 end
 if TogTurn||WhoseTurn==-1
     WhoseTurn=-WhoseTurn;
-    if xor(Mode<2,TogTurn)
-        disp('beep');
-    set(findobj('tag','Player1Text'),'BackgroundColor',[1 1 0]);
-    set(findobj('tag','Player2Text'),'BackgroundColor',[0.94 0.94 0.94]);
-    
+    if Mode<2
+        if xor(Mode<2,TogTurn)
+       
+        set(findobj('tag','Player1Text'),'BackgroundColor',[1 1 0]);
+        set(findobj('tag','Player2Text'),'BackgroundColor',[0.94 0.94 0.94]);
+        end
+        
     end
 
 end
