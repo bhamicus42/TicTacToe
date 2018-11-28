@@ -5,7 +5,7 @@
 % Authors:   Ben Hoffman, Kyle Rockwell, Emmy Nam, Andre Sanchez
 % Engr-6 Group Stomadoapod srjc
 
-% last edited by Emmy Nam 11/20/2018 13:45
+% last edited by Kyle Rockwell 11/28/2018 14:09
 
 %Checks for possible wins
 for Index = 1:length(PossWins)
@@ -13,12 +13,13 @@ for Index = 1:length(PossWins)
 end
 if max(CheckWins) == 3
     EndGame = 1;
+    disp('Endgame by win');
 else
     CheckWins = [];
 end
 
-%checks for tie
-if (sum(sum(abs(GameState)))) == 9
+%checks for tie and makes sure there are no wins
+if ((sum(sum(abs(GameState)))) == 9)  && isempty(CheckWins)
     Ties = Ties + 1;
     TieBool = 1;
     EndGame = 1;
