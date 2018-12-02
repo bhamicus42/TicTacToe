@@ -14,7 +14,7 @@
 Sides = [2, 4, 6, 8];
 PlayerTakenSides = [];
 CompTakenSides = [];
-for Index = Corners
+for Index = Sides
     if GameState(Index) == 1;
         PlayerTakenSides = [PlayerTakenSides, Index];
     elseif GameState(Index) == -1;

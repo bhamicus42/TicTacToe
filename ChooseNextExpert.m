@@ -7,6 +7,63 @@
 % // ElimPossWins
 % // FindBestMovesOpen
 
+SideOptions = [2,4,6,8];
+CornerOptions = [1, 3, 7, 9];
+
+%PLAYER STARTS
+if (TogTurn == 0) && (Mode == 4)
+    CornerMove;
+    SideMove;
+    OppCorner = sum(PlayerTakenCorners) >= 10; %Notes if player goes in opposite corners
+    OppSide = sum(PlayerTakenSides) >= 10; %Notes if player goes in opposite sides
+    BestMovesOpen = []; %init BestMovesOpen
+    
+    if PlayerTakenCorners > 0 %PLAYER TOOK CORNER
+        if (GameState(5) == 0)
+            CompMoveChoice = 5; %CompMoveChoice in middle
+        elseif OppCorner && (length(find(GameState)) == 3)
+            CompMoveChoice = SideOptions(randi(length(SideOptions))); %prevent player from being able to force win
+        else %if player in corner and middle is not open, next comp. move
+            WinBlock; %Computer move if they can win or block on very next turn (CompMoveChoice within function)
+            if NoWinBlock
+                FindBestMovesOpen; %Comp move if win still possible (CompMoveChoice within function)
+            end
+        end
+        
+    elseif (length(PlayerTakenCorners) == 0) && (length(PlayerTakenSides) == 0) %PLAYER TOOK MIDDLE
+        if (length(find(GameState)) == 1)
+            CompMoveChoice = CornerOptions(randi(length(CornerOptions))); %CompMoveChoice in corner
+        elseif OppCorner && (length(find(GameState)) == 3)
+            CompMoveChoice = SideOptions(randi(length(SideOptions)));
+        else %further along in game
+            WinBlock; %Computer move if they can win or block on very next turn (CompMoveChoice within function)
+            if NoWinBlock
+                FindBestMovesOpen; %Comp move if win still possible (CompMoveChoice within function)
+            end
+        end
+        
+    elseif PlayerTakenSides > 0 %PLAYER TOOK SIDE
+        if (GameState(5) == 0)
+            CompMoveChoice = 5; %Comp move in middle
+        elseif OppSide && (length(find(GameState)) == 3)
+            CompMoveChoice = CornerOptions(randi(length(CornerOptions)));
+        else %if player in sides and not play in opposite side/further along in game
+            WinBlock; %Computer move if they can win or block on very next turn (CompMoveChoice within function)
+            if NoWinBlock
+                FindBestMovesOpen; %Comp move if win still possible (CompMoveChoice within function)
+            end
+        end
+    end
+    
+
+    if GameState(CompMoveChoice) ~=0  %Last Resort: randomly choose because no option is better
+        CompMoveChoice = PossibleMoves(randi(length(PossibleMoves)));
+    end
+
+end
+MarkBox;
+
+
 % // % Expert notes:
 % // % if player starts
 % // % 	if player chooses corner
@@ -31,32 +88,3 @@
 % // % if comp starts
 % // % 	choose 2 corners
 % // % 		prefer corners in a column/row comp already in but player not
-
-        
-if (TogTurn == 0) && (Mode == 4) %Player starts
-    CornerMove;
-    if PlayerTakenCorners > 0 %player has at least one piece in corner
-        if (GameState(5) == 0)
-            CompMoveChoice = 5; %Comp move in middle
-        OppCorner = sum(PlayerTakenCorners) >= 10 %Notes if player goes in opposite corners
-        elseif OppCorner && (length(find(GameState)) == 3)
-            SideOptions = [2,4,6,8]
-            CompMoveChoice = SideOptions(randi(length(SideOptions)))
-        else %if playter in corner and middle is not open
-            WinBlock %Computer move if they can win or block on very next turn (Comp choice within function)
-            if NoWinBlock
-                FindBestMovesOpen %Comp move if win still possible (comp choice within function)
-            end
-        end
-    elseif PlayerTakenCorners == 0 && PlayerTakenSides == 0
-        %PLAYER TOOK MIDDLE
-    elseif PlayerTakenSides > 0
-        %PLAYER TOOK SIDE
-    end
-    if 1 == 0
-        CompMoveChoice = PossibleMoves(randi(length(PossibleMoves))) %random among all options (b/c no best options)
-    end
-end
-
-MarkBox
-
