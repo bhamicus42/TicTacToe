@@ -17,7 +17,6 @@ EmptyPossWins = [];
 
 for Options = 1:length(PossWins)
     PossWinOpt = PossWins(Options, :); %pulls one win option
-    disp(['Poss wins opt: ', num2str(PossWinOpt)])
    	Count = 0 ; %init Count and IsEmpty for each poss win 
     IsEmpty = 1;
 
@@ -45,11 +44,8 @@ if length(CompPossWins) > 0
 elseif length(EmptyPossWins) > 0
     FinalPossWins = EmptyPossWins;
 else
-    disp('No good options')
 end
 %RANDOMLY CHOOSE SPOT (Will do through ChooseNextExpert)
-
-FinalPossWins %displays the new array (used for debugging)
 
 %NEXT TASK: use this array to randomly choose box that is not occupied
 %Look at CompChoiceMove in ModerateAI to see if this is being done (note: be careful because the array will change sizes)
