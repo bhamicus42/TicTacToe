@@ -17,7 +17,7 @@ if (Mode > 1) & (EndGame ~= 1)
             case 3
                 ChooseNextModerate
             case 4
-    %             ChooseNextExpert
+                ChooseNextExpert
         end
         
         WhoseTurn = -WhoseTurn;
