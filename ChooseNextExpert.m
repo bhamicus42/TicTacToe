@@ -66,8 +66,7 @@ else
 
         % if second move
         elseif Turn == 2        
-            %If player took a side adjacent to comp, start a line.  Else if
-            %player took any side, take middle.
+            %If player took a side adjacent to comp, start a line.
             %TO IMPROVE:  WIN CAN ALSO BE FORCED WITHOUT JUST TAKING
             %MIDDLE, CAN ACHIEVE GREATER VARIETY IF TAKE THAT ROUTE
             if ((GameState(1) == WhoseTurn && any(GameState([2 4]) == -WhoseTurn)) ||...
@@ -97,23 +96,18 @@ else
 %                         CompMoveChoice = NewLine(randi(length(NewLine)));
 %                     end    
 %                 end
-            elseif any(GameState(Sides)) == -WhoseTurn
-                OpenCorners = find(GameState(Corners)==0);
-                CompMoveChoice = Corners(OpenCorners(randi(length(OpenCorners))));
-
-            % if player took a corner, take an open corner
-            elseif any(GameState(Corners) == -WhoseTurn)
-                OpenCorners = find(GameState(Corners)==0);
-                CompMoveChoice = Corners(OpenCorners(randi(length(OpenCorners))));
-                
-            % if player took middle, take a corner on a line from one
-            % already taken
-            elseif GameState(5) == -WhoseTurn
+            %if player took some other side or middle, take a corner
+            %on a line from one already taken 
+            elseif any(GameState(Sides)) == -WhoseTurn || GameState(5) == -WhoseTurn
+%                 OpenCorners = find(GameState(Corners)==0);
+%                 CompMoveChoice = Corners(OpenCorners(randi(length(OpenCorners))));
                 if (GameState(1) == WhoseTurn)
+%                     disp('First move was 1')
                     CornerOptions = [3 7];
                     OpenCorners = CornerOptions(GameState(CornerOptions)==0);
                     CompMoveChoice = Corners(Corners==OpenCorners(randi(length(OpenCorners))));
                 elseif (GameState(3) == WhoseTurn)
+%                     disp('First move was 3')
                     CornerOptions = [1 9];
                     OpenCorners = CornerOptions((find(GameState([1 9])==0)));
                     CompMoveChoice = Corners(Corners==OpenCorners(randi(length(OpenCorners))));
@@ -126,6 +120,16 @@ else
                     OpenCorners = CornerOptions(find(GameState([3 7])==0));
                     CompMoveChoice = Corners(Corners==OpenCorners(randi(length(OpenCorners))));
                 end
+
+            % if player took a corner, take an open corner
+            elseif any(GameState(Corners) == -WhoseTurn)
+                OpenCorners = find(GameState(Corners)==0);
+                CompMoveChoice = Corners(OpenCorners(randi(length(OpenCorners))));
+                
+            % if player took middle, take a corner on a line from one
+            % already taken
+%             elseif GameState(5) == -WhoseTurn
+                
                 
             end
 
@@ -137,6 +141,28 @@ else
                 if any(GameStateSecondTurn(Corners) == -WhoseTurn)
                     OpenCorners = find(GameState(Corners)==0);
                     CompMoveChoice = Corners(OpenCorners(randi(length(OpenCorners))));
+                
+                %if player took two sides, take a corner on a line from
+                %first one taken
+                elseif sum(GameState(Sides(GameState(Sides) == 1))) == 2
+                    GameStateFirstTurn = GameStateHistory(:,1:3)
+                    if (GameStateHistory(1) == WhoseTurn)
+                        CornerOptions = [3 7];
+                        OpenCorners = CornerOptions(GameState(CornerOptions)==0);
+                        CompMoveChoice = Corners(Corners==OpenCorners(randi(length(OpenCorners))));
+                    elseif (GameStateHistory(3) == WhoseTurn)
+                        CornerOptions = [1 9];
+                        OpenCorners = CornerOptions((find(GameState([1 9])==0)));
+                        CompMoveChoice = Corners(Corners==OpenCorners(randi(length(OpenCorners))));
+                    elseif (GameStateHistory(7) == WhoseTurn)
+                        CornerOptions = [1 9];
+                        OpenCorners = CornerOptions((find(GameState([1 9])==0)));
+                        CompMoveChoice = Corners(Corners==OpenCorners(randi(length(OpenCorners))));
+                    elseif (GameStateHistory(9) == WhoseTurn)
+                        CornerOptions = [3 7];
+                        OpenCorners = CornerOptions(find(GameState([3 7])==0));
+                        CompMoveChoice = Corners(Corners==OpenCorners(randi(length(OpenCorners))));
+                    end
                 
                 % if player took side and corner make a cluster
                 elseif any(GameState(Corners) == -WhoseTurn) && any(GameState(Sides)) == -WhoseTurn
