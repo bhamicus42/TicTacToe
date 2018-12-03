@@ -14,6 +14,9 @@ if ~exist('GameState')
         WhoseTurn = -WhoseTurn;
     end
     GameState = zeros(3,3);
+    
+    %this is needed for a select case in ChooseNextExpert
+    GameStateHistory = GameState;
 
     PossWins = [1,2,3;
                 4,5,6;

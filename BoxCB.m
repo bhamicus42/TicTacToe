@@ -7,6 +7,9 @@
 BoxTag = (get(gcbo, 'tag'));
 BoxNum = str2num(BoxTag(end));
 
+%This is needed for a select case in ChooseNextExpert
+GameStateHistory = [GameStateHistory GameState];
+
 %Everything inside this if statement only executes if the box isn't
 %already occupied
 if GameState(BoxNum) == 0
